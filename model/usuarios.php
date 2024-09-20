@@ -3,7 +3,7 @@
 
 require './model/db.php';
 
- class Usuarios extends DataBase{
+ class UsuariosModel extends DataBase{
 
 
     public function getAll()  
