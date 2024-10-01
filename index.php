@@ -5,22 +5,19 @@
 require './controller/usuariosController.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
+$controllerUsuario = new UsuariosController();
+
 switch($method)
 {
     case 'GET':
-           //mando a llamar controlador y ejecuto el metodo index
-           $controllerUsuario = new UsuariosController();
-           echo json_encode($controllerUsuario->index());
-           http_response_code(201);
+        $controllerUsuario->index();
     break;    
     case 'POST':
-        $method = "peticion POST";
+        $controllerUsuario->post(json_decode(file_get_contents('php://input')));
     break;
     case 'PATCH':
-        $method = "peticion PATCH";
     break;
     case 'DELETE':
-        $method = "peticion DELETE";
     break;
 }
 
